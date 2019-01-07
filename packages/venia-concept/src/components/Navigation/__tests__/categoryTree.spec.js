@@ -153,7 +153,7 @@ test('renders with product data', async () => {
         </MockedProvider>
     );
 
-    await wait();
+    await wait(500);
 
     expect(root.findAllByType(Branch).length).toBe(2);
     expect(root.findAllByType(Leaf).length).toBe(3);
