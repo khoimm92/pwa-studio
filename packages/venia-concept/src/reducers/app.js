@@ -10,8 +10,10 @@ const initialState = {
     isOnline: navigator.onLine,
     overlay: false,
     searchOpen: false,
+    compareOpen: false,
     query: '',
-    pending: {}
+    pending: {},
+    compareProducts: [],
 };
 
 const reducerMap = {
@@ -26,6 +28,20 @@ const reducerMap = {
         return {
             ...state,
             searchOpen: !state.searchOpen
+        };
+    },
+    [actions.toggleCompare]: state => {
+        return {
+            ...state,
+            compareOpen: !state.compareOpen
+        };
+    },
+    [actions.addCompare]: (state, {payload}) => {
+        console.log('payload',payload)
+        const isExist = state.compareProducts.find(e => e.sku === payload.sku);
+        return {
+            ...state,
+            compareProducts: isExist === undefined ? [...state.compareProducts, payload] : state.compareProducts
         };
     },
     [actions.executeSearch]: (state, { payload }) => {

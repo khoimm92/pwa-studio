@@ -122,6 +122,11 @@ class ProductFullDetail extends Component {
         addToCart(payload);
     };
 
+    addItemToCompare = () => {
+        const { product } = this.props;
+        this.props.addItemToCompare(product);
+    };
+
     handleSelectionChange = (optionId, selection) => {
         this.setState(({ optionSelections }) => ({
             optionSelections: new Map(optionSelections).set(
@@ -188,6 +193,11 @@ class ProductFullDetail extends Component {
                 <section className={classes.cartActions}>
                     <Button onClick={this.addToCart}>
                         <span>Add to Cart</span>
+                    </Button>
+                </section>
+                <section className={classes.cartActions}>
+                    <Button onClick={this.addItemToCompare}>
+                        <span>Add to Compare</span>
                     </Button>
                 </section>
                 <section className={classes.description}>

@@ -30,7 +30,7 @@ class Main extends Component {
     render() {
         const { classes, props } = this;
         const { children } = props;
-
+console.log(33,children)
         return (
             <main className={classes.root}>
                 <Header />

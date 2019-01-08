@@ -6,6 +6,8 @@ const actionTypes = [
     'SET_ONLINE',
     'SET_OFFLINE',
     'TOGGLE_SEARCH',
+    'TOGGLE_COMPARE',
+    'ADD_COMPARE',
     'EXECUTE_SEARCH'
 ];
 

@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 import { bool, shape, number, arrayOf, string } from 'prop-types';
 
 import { addItemToCart } from 'src/actions/cart';
+import { addItemToCompare } from 'src/actions/app';
 import ProductFullDetail from 'src/components/ProductFullDetail';
 import getUrlKey from 'src/util/getUrlKey';
 
@@ -131,6 +132,7 @@ class Product extends Component {
                         <ProductFullDetail
                             product={product}
                             addToCart={this.props.addItemToCart}
+                            addItemToCompare={this.props.addItemToCompare}
                         />
                     );
                 }}
@@ -140,7 +142,8 @@ class Product extends Component {
 }
 
 const mapDispatchToProps = {
-    addItemToCart
+    addItemToCart,
+    addItemToCompare
 };
 
 export default connect(

@@ -9,6 +9,9 @@ import Navigation from 'src/components/Navigation';
 import OnlineIndicator from 'src/components/OnlineIndicator';
 import defaultClasses from './app.css';
 import renderRoutes from './renderRoutes';
+import CompareProduct from "../CompareProduct/compareProduct";
+import connect from "react-redux/es/connect/connect";
+import {compose} from "redux";
 
 class App extends Component {
     static propTypes = {
@@ -33,7 +36,7 @@ class App extends Component {
     }
 
     render() {
-        const { app, classes, closeDrawer } = this.props;
+        const { app, classes, closeDrawer, compareOpen } = this.props;
         const { onlineIndicator } = this;
         const { drawer, overlay } = app;
         const navIsOpen = drawer === 'nav';
@@ -49,9 +52,24 @@ class App extends Component {
                 <Mask isActive={overlay} dismiss={closeDrawer} />
                 <Navigation isOpen={navIsOpen} />
                 <MiniCart isOpen={cartIsOpen} />
+                <CompareProduct isOpen={compareOpen} />
             </div>
         );
     }
 }
 
-export default classify(defaultClasses)(App);
+const mapStateToProps = ({ app }) => {
+    const { compareOpen } = app;
+    return {
+        compareOpen
+    };
+};
+// export default classify(defaultClasses)(App);
+
+export default compose(
+    classify(defaultClasses),
+    connect(
+        mapStateToProps,
+        null
+    )
+)(App);

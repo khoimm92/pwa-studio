@@ -25,7 +25,9 @@ class Header extends Component {
             toolbar: PropTypes.string
         }),
         searchOpen: PropTypes.bool,
-        toggleSearch: PropTypes.func.isRequired
+        compareOpen: PropTypes.bool,
+        toggleSearch: PropTypes.func.isRequired,
+        toggleCompare: PropTypes.func.isRequired,
     };
 
     get searchIcon() {
@@ -33,7 +35,7 @@ class Header extends Component {
     }
 
     render() {
-        const { searchOpen, classes, toggleSearch } = this.props;
+        const { searchOpen, classes, toggleSearch, toggleCompare } = this.props;
 
         const rootClass = searchOpen ? classes.open : classes.closed;
 
@@ -61,6 +63,7 @@ class Header extends Component {
                         >
                             {this.searchIcon}
                         </SearchTrigger>
+                        <button onClick={toggleCompare}>Compare products</button>
                         <CartTrigger>
                             <Icon name="shopping-cart" />
                         </CartTrigger>

@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 
 import Header from './header';
-import { toggleSearch } from 'src/actions/app';
+import { toggleSearch, toggleCompare } from 'src/actions/app';
 
 const mapStateToProps = ({ app }) => {
-    const { searchOpen } = app;
+    const { searchOpen, compareOpen } = app;
     return {
-        searchOpen
+        searchOpen, compareOpen
     };
 };
 
-const mapDispatchToProps = { toggleSearch };
+const mapDispatchToProps = { toggleSearch, toggleCompare };
 
 export default connect(
     mapStateToProps,
