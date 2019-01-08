@@ -9,6 +9,7 @@ export const closeDrawer = () => async dispatch =>
 export const toggleSearch = () => async dispatch =>
     dispatch(actions.toggleSearch());
 
+export const executeSearch = (query, history, categoryId) =>
 export const toggleCompare = () => async dispatch =>
     dispatch(actions.toggleCompare());
 
@@ -17,7 +18,9 @@ export const addCompare = product => async dispatch =>
 
 export const executeSearch = (query, history) =>
     async function thunk(dispatch) {
-        history.push(`/search.html?query=` + query);
+        let searchQuery = `query=${query}`;
+        if (categoryId) searchQuery += `&category=${categoryId}`;
+        history.push(`/search.html?${searchQuery}`);
         dispatch(actions.executeSearch(query));
     };
 
