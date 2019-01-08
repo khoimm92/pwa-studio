@@ -35,7 +35,6 @@ class CompareProduct extends Component {
 
         const { props } = this;
         const { classes, isOpen, toggleCompare, compareProducts } = props;
-        console.log(77,compareProducts)
         const className = isOpen ? classes.root_open : classes.root;
 
         return (

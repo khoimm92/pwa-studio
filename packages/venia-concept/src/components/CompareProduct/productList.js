@@ -18,7 +18,6 @@ class ProductList extends Component {
                 sku: string.isRequired
             })
         ).isRequired,
-        currencyCode: string.isRequired
     };
 
     render() {
@@ -28,6 +27,7 @@ class ProductList extends Component {
         return (
             <List
                 items={items}
+                getItemKey={item => item.sku}
                 render="ul"
                 renderItem={props => (
                     <Product
